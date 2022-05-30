@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "prebuild": "cd node_modules/as-proto-gen/packages/as-proto-gen && yarn build",
     "build": "rm -rf src/* && protoc @protoc.options $(find ./proto -type f -name '*.proto')",
-    "pretest": "./fix-src.sh",
     "test": "asc --explicitStart --path node_modules/as-proto/assembly --exportRuntime --runtime stub index.ts --lib as-test -b index.wasm"
   },
   "devDependencies": {
-    "as-proto-gen": "^0.2.4",
+    "as-proto-gen": "https://github.com/figment-networks/as-proto.git",
     "assemblyscript": "^0.19.10",
     "typescript": "^4.7.2"
   },
