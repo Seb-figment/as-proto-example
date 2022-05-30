@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package bar;
+
+import "foo/baz/foo.proto";
+
+message Qux {
+    uint32 a = 1;
+    string b = 2;
+    QuxStuff c = 3;
+
+    message QuxStuff {
+        repeated foo.baz.Foo a = 1;
+        uint64 b = 2;
+    }
+}

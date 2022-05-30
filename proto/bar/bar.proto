@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package bar;
+
+import "bar/qux.proto";
+import "foo/baz/qux.proto";
+
+message Bar {
+    bytes a = 1;
+    repeated bar.Qux b = 2;
+    repeated foo.baz.Qux c = 3;
+}

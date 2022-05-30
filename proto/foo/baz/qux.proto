@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package foo.baz;
+
+import "foo/baz/foo.proto";
+
+message Qux {
+    foo.baz.Foo a = 1;
+    string b = 2;
+}

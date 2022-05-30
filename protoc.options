@@ -1,0 +1,3 @@
+--plugin=protoc-gen-as=./node_modules/as-proto-gen/bin/as-proto-gen
+--proto_path=./proto
+--as_out=./src
