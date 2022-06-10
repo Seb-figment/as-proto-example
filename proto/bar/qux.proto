@@ -8,6 +8,7 @@ message Qux {
     uint32 a = 1;
     string b = 2;
     QuxStuff c = 3;
+    foo.baz.Foo foo = 4;
 
     message QuxStuff {
         repeated foo.baz.Foo a = 1;

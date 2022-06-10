@@ -22,6 +22,14 @@ export class Qux {
       Qux.QuxStuff.encode(c_, writer);
       writer.ldelim();
     }
+
+    const foo_ = message.foo;
+    if (foo_ !== null) {
+      writer.uint32(34);
+      writer.fork();
+      foo.baz.Foo.encode(foo_, writer);
+      writer.ldelim();
+    }
   }
 
   static decode(reader: Reader, length: i32): Qux {
@@ -43,6 +51,10 @@ export class Qux {
           message.c = Qux.QuxStuff.decode(reader, reader.uint32());
           break;
 
+        case 4:
+          message.foo = foo.baz.Foo.decode(reader, reader.uint32());
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -55,11 +67,13 @@ export class Qux {
   a: u32;
   b: string;
   c: Qux.QuxStuff | null;
+  foo: foo.baz.Foo | null;
 
-  constructor(a: u32 = 0, b: string = "", c: Qux.QuxStuff | null = null) {
+  constructor(a: u32 = 0, b: string = "", c: Qux.QuxStuff | null = null, foo: foo.baz.Foo | null = null) {
     this.a = a;
     this.b = b;
     this.c = c;
+    this.foo = foo;
   }
 }
 
